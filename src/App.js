@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App(props) {
-   let parts = props.parts.map(p => <>
+  let parts = props.parts.map(p => <>
     <label for='part1'>{p.name}</label>
     <input type="number" id="part1" value={p.amount}></input>
   </>);
@@ -11,7 +11,7 @@ function App(props) {
       <header className="App-header">
 
         <h1>How much to cook</h1>
-
+        <h2>{props.recipeName}</h2>
         <div class='container'>
           {parts}
           <label for='part4'>Persons</label>

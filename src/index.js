@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 let appData = {
+  recipeName: 'Cake',
   parts: [
     { name: "Milk", amount: 300 },
     { name: "Sugar", amount: 400 },
@@ -19,6 +20,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App
+      recipeName={appData.recipeName}
       parts={appData.parts}
       persons={appData.persons}
       minPersons={appData.minPersons}
