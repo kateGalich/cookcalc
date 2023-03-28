@@ -4,10 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+let appData = {
+  parts: [
+    { name: "Milk", amount: 300 },
+    { name: "Sugar", amount: 400 },
+    { name: "Flour", amount: 500 },
+  ],
+  persons: 2,
+  maxPersons: 10,
+  minPersons: 1
+};
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App
+      parts={appData.parts}
+      persons={appData.persons}
+      minPersons={appData.minPersons}
+      maxPersons={appData.maxPersons} />
+
   </React.StrictMode>
 );
 
