@@ -7,9 +7,9 @@ import reportWebVitals from './reportWebVitals';
 let appData = {
   recipeName: 'Cake',
   parts: [
-    { name: "Milk", amount: 300 },
-    { name: "Sugar", amount: 400 },
-    { name: "Flour", amount: 500 },
+    { name: "Milk", amount: 300, unit: "ml" },
+    { name: "Sugar", amount: 400, unit: "g" },
+    { name: "Flour", amount: 500, unit: "g" },
   ],
   persons: 2,
   maxPersons: 10,

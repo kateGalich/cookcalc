@@ -5,6 +5,7 @@ function App(props) {
   let parts = props.parts.map(p => <>
     <label for='part1'>{p.name}</label>
     <input type="number" id="part1" value={p.amount}></input>
+    <span>{p.unit}</span>
   </>);
   return (
     <div className="App">
