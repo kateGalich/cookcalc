@@ -4,7 +4,7 @@ import './App.css';
 function App(props) {
   let parts = props.parts.map(p => <>
     <label for='part1'>{p.name}</label>
-    <input type="number" id="part1" value={p.amount}></input>
+    <input type="number" id="part1" defaultValue={p.amount}></input>
     <span>{p.unit}</span>
   </>);
   return (
@@ -16,7 +16,7 @@ function App(props) {
         <div class='container'>
           {parts}
           <label for='part4'>Persons</label>
-          <input type='range' min={props.minPersons} max={props.maxPersons} step="1" value={props.persons} id='part4'></input>
+          <input type='range' min={props.minPersons} max={props.maxPersons} step="1" defaultValue={props.persons} id='part4'></input>
 
         </div>
       </header>
