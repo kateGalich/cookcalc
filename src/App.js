@@ -12,7 +12,7 @@ function App(props) {
       <header className="App-header">
 
         <h1>How much to cook</h1>
-        <h2>{props.recipeName}</h2>
+        <h2>{props.recipeName} for {props.persons}</h2>
         <div class='container'>
           {parts}
           <label for='part4'>Persons</label>
