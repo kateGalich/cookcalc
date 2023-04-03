@@ -3,8 +3,19 @@ import './App.css';
 import { useState } from 'react';
 
 function App(props) {
-  let [personCount, setPersonCount] = useState(props.persons);
-  let parts = props.parts.map(p => <>
+  let [recipe, setRecipe] = useState(props);
+
+  function setPersons(value){
+    setRecipe(oldRecipe => {
+      let newRecepi = {
+        ...oldRecipe,
+        persons: value
+      };
+      return newRecepi;
+    });
+  }
+
+  let parts = recipe.parts.map(p => <>
     <label for='part1'>{p.name}</label>
     <input type="number" id="part1" defaultValue={p.amount}></input>
     <span>{p.unit}</span>
@@ -14,17 +25,18 @@ function App(props) {
       <header className="App-header">
 
         <h1>How much to cook</h1>
-        <h2>{props.recipeName} for {personCount}</h2>
+        <h2>{recipe.recipeName} for {recipe.persons}</h2>
         <div class='container'>
           {parts}
           <label for='part4'>Persons</label>
           <input
             type='range'
-            min={props.minPersons}
-            max={props.maxPersons}
+            min={recipe.minPersons}
+            max={recipe.maxPersons}
             step="1"
-            value={personCount}
-            onChange={e => setPersonCount(e.target.value)}
+            title={recipe.persons}
+            value={recipe.persons}
+            onChange={e => setPersons(e.target.value)}
             id='part4'></input>
 
         </div>
