@@ -32,18 +32,25 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.container{
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 8px;
+}
+
+.container label {
+  text-align: end;
+  margin-right: 10px;
 
 }
-.container span{
-  text-align:start;
+
+.container span {
+  text-align: start;
   padding-left: 10px;
 }
-
