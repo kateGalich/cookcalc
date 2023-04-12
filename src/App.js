@@ -16,6 +16,17 @@ function App(props) {
     });
   }
 
+  function setPartName(name, index) {
+    setRecipe(oldRecipe => {
+      let newRecepi = {
+        ...oldRecipe,
+        parts: oldRecipe.parts.map(x => ({ ...x })),
+      };
+      newRecepi.parts[index].name = name;
+      return newRecepi;
+    });
+  }
+  
   function setPersons(value) {
     setRecipe(oldRecipe => {
       let newRecepi = {
@@ -32,7 +43,12 @@ function App(props) {
 
   let parts = recipe.parts.map((p, index) =>
     <Fragment key={index}>
-      <label htmlFor='part1'>{p.name}</label>
+      <input
+        type='text'
+        id='part1'
+        value={p.name}
+        onChange={e => setPartName(e.target.value, index)}>
+      </input>
       <input
         type="number"
         id="part1"
