@@ -5,11 +5,22 @@ import { Fragment, useState } from 'react';
 function App(props) {
   let [recipe, setRecipe] = useState(props);
 
+  function setPartAmount(amount, index) {
+    setRecipe(oldRecipe => {
+      let newRecepi = {
+        ...oldRecipe,
+        parts: oldRecipe.parts.map(x => ({ ...x })),
+      };
+      newRecepi.parts[index].amount = amount;
+      return newRecepi;
+    });
+  }
+
   function setPersons(value) {
     setRecipe(oldRecipe => {
       let newRecepi = {
         ...oldRecipe,
-        parts: oldRecipe.parts.map(x => ({...x})),
+        parts: oldRecipe.parts.map(x => ({ ...x })),
         persons: value,
       };
       for (const part of newRecepi.parts) {
@@ -22,7 +33,11 @@ function App(props) {
   let parts = recipe.parts.map((p, index) =>
     <Fragment key={index}>
       <label htmlFor='part1'>{p.name}</label>
-      <input type="number" id="part1" value={p.amount}>
+      <input
+        type="number"
+        id="part1"
+        value={p.amount}
+        onChange={e => setPartAmount(e.target.value, index)}>
       </input>
       <span> {p.unit}</span>
     </Fragment>);
