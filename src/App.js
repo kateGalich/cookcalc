@@ -26,7 +26,7 @@ function App(props) {
       return newRecepi;
     });
   }
-  
+
   function setPersons(value) {
     setRecipe(oldRecipe => {
       let newRecepi = {
@@ -37,6 +37,17 @@ function App(props) {
       for (const part of newRecepi.parts) {
         part.amount = part.amount / oldRecipe.persons * newRecepi.persons;
       }
+      return newRecepi;
+    });
+  }
+
+  function addPart() {
+    setRecipe(oldRecipe => {
+      let newRecepi = {
+        ...oldRecipe,
+        parts: oldRecipe.parts.map(x => ({ ...x })),
+      };
+      newRecepi.parts.push({ name: "", amount: 0, unit: "g" });
       return newRecepi;
     });
   }
@@ -66,6 +77,7 @@ function App(props) {
         <div className='container'>
           {parts}
           <label htmlFor='part4'>Persons</label>
+
           <input
             type='range'
             min={recipe.minPersons}
@@ -77,6 +89,10 @@ function App(props) {
             id='part4'></input>
 
         </div>
+        <button
+          onClick={e => addPart()}>
+          Add new
+        </button>
       </header >
     </div >
   );
