@@ -66,7 +66,11 @@ function App(props) {
         value={Math.round(p.amount*10)/10}
         onChange={e => setPartAmount(e.target.value, index)}>
       </input>
-      <span> {p.unit}</span>
+      <input
+      type='text'
+      id='part1'
+      value={p.unit}>
+      </input>
     </Fragment>);
   return (
     <div className="App">
