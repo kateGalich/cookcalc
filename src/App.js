@@ -63,19 +63,24 @@ function App(props) {
       <input
         type="number"
         id="part1"
-        value={Math.round(p.amount*10)/10}
+        value={Math.round(p.amount * 10) / 10}
         onChange={e => setPartAmount(e.target.value, index)}>
       </input>
       <input
-      type='text'
-      id='part1'
-      value={p.unit}>
+        type='text'
+        id='part1'
+        list="units"
+        value={p.unit}>
       </input>
     </Fragment>);
   return (
     <div className="App">
       <header className="App-header">
-
+        <datalist id='units'>
+          <option> g </option>
+          <option> ml </option>
+          <option> kg </option>
+        </datalist>
         <h1>How much to cook</h1>
         <h2>{recipe.recipeName} for {recipe.persons}</h2>
         <div className='container'>
